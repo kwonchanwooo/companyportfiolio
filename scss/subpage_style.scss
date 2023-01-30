@@ -1,0 +1,359 @@
+@import "reset.scss";
+@import "mixin.scss";
+#header_sub {
+	width: 100%;
+	border-bottom: 1px solid #ddd;
+	.inner {
+		width: 1180px;
+		height: 120px;
+		margin: 0 auto;
+		position: relative;
+		> h1 {
+			position: absolute;
+			left: 0;
+			bottom: 15px;
+			a {
+				font: bold 24px/1 "arial";
+				color: #444;
+			}
+		}
+		// menuWeb 영역
+
+		.menuWeb {
+			#gnb {
+				position: absolute;
+				right: 0;
+				bottom: 0;
+				li {
+					float: left;
+					a {
+						display: block;
+						padding: 14px 40px;
+						font: bold 14px/1 "arial";
+						color: #777;
+						&:hover {
+							background-color: #555;
+							color: #fff;
+						}
+					}
+				}
+			}
+			.util {
+				position: absolute;
+				top: 20px;
+				right: 40px;
+				li {
+					float: left;
+					margin-left: 20px;
+					a {
+						font: 12px/1 "arial";
+						color: #999;
+					}
+				}
+			}
+		}
+		.btnCall {
+			position: absolute;
+			top: 50%;
+			right: 30px;
+			transform: translateY(-50%);
+			width: 20px;
+			height: 20px;
+			display: none;
+			&::before {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 2px;
+				background: #000;
+				position: absolute;
+				top: 0;
+				left: 0;
+				transition: top 0.5s 0s, transform 0.5s 0.5s;
+			}
+			&::after {
+				content: "";
+				display: block;
+				width: 100%;
+				height: 2px;
+				background: #000;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				transition: bottom 0.5s 0s, transform 0.5s 0.5s;
+			}
+			span {
+				display: block;
+				width: 100%;
+				height: 2px;
+				background: #000;
+				position: absolute;
+				top: 50%;
+				left: 0;
+				margin-top: -1px;
+				text-indent: -999999px;
+				transition: all 1s;
+			}
+			&.on {
+				&::before {
+					top: 50%;
+					margin-top: -1px;
+					transform: rotate(45deg);
+				}
+				&::after {
+					bottom: 50%;
+					margin-bottom: -1px;
+					transform: rotate(-45deg);
+				}
+				span {
+					transform: translateX(100%);
+					opacity: 0;
+				}
+			}
+		}
+		.menuMo {
+			width: 270px;
+			height: 100vh;
+			background-color: #333;
+			position: fixed;
+			top: 0;
+			left: -270px;
+			z-index: 10;
+			padding: 35px 30px;
+			text-align: center;
+			transition: 0.5s;
+			display: none;
+			&.on {
+				left: 0;
+			}
+			h1 {
+				padding-bottom: 30px;
+				border-bottom: 1px solid #666;
+				a {
+					display: block;
+					font: bold 24px/1 "arial";
+					color: #fff;
+					text-align: center;
+				}
+				span {
+					font-size: 12px;
+					color: #aaa;
+				}
+			}
+			#gnbMo {
+				li {
+					a {
+						display: block;
+						width: 100%;
+						padding: 20px 0;
+						border-bottom: 1px solid #444;
+						font: bold 14px/1 "arial";
+						color: #888;
+					}
+				}
+			}
+		}
+	}
+}
+//visual
+#visual {
+	width: 100%;
+	height: calc(100vh - 121px);
+	background: #000;
+	video {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		opacity: 0.4;
+	}
+	.inner {
+		width: 1180px;
+		margin: 0 auto;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		h1 {
+			font: normal 120px/1 "arial";
+			color: #fff;
+			margin-bottom: 20px;
+		}
+		p {
+			font: 16px/1.4 "arial";
+			color: #888;
+			margin-bottom: 80px;
+		}
+		a {
+			display: block;
+			width: 400px;
+			height: 30px;
+			border: 1px solid #bbb;
+			font: bold 11px/30px "arial";
+			color: #fff;
+			text-align: center;
+			&:hover {
+				background: #fff;
+				color: #555;
+			}
+		}
+	}
+}
+// content
+.content {
+	width: 100%;
+	padding: 0 0 150px;
+	.sub_visual {
+		width: 100%;
+		height: 250px;
+		background: #bbb;
+		margin-bottom: 100px;
+	}
+	.inner {
+		// border: 1px solid red;
+		width: 1180px;
+		margin: 0 auto;
+		min-height: 500px;
+		h1 {
+			font: normal 50px/1 "arial";
+			color: #000;
+			margin-bottom: 60px;
+			span {
+				font: normal 20px/1 "맑은 고딕";
+				color: #aaa;
+				&::before {
+					content: "/";
+					margin-left: 10px;
+					margin-right: 20px;
+				}
+			}
+		}
+	}
+}
+// footer
+
+#footer_sub {
+	width: 100%;
+	padding: 100px 0;
+	background-color: #444;
+	.inner {
+		width: 1180px;
+		margin: 0 auto;
+		&::after {
+			@include clear;
+		}
+		h1 {
+			font: bold 24px/1 "arial";
+			color: #666;
+			float: left;
+		}
+		ul {
+			float: right;
+			li {
+				float: left;
+				margin-left: 20px;
+				a {
+					font: bold 14px/1 "arial";
+					color: #666;
+				}
+			}
+		}
+	}
+	address {
+		float: left;
+		width: 100%;
+		font: 14px/1 "arial";
+		color: #777;
+		margin-bottom: 20px;
+		margin-top: 20px;
+		border-top: 1px solid #888;
+		padding-top: 20px;
+	}
+	p {
+		float: left;
+		width: 100%;
+		font: 12px/1 "arial";
+		color: #777;
+	}
+}
+// table
+
+@media screen and (max-width: 1179px) {
+	// header
+	#header_sub {
+		.inner {
+			width: 100%;
+			height: 100px;
+			h1 {
+				left: 30px;
+				bottom: 30%;
+			}
+			.menuWeb {
+				display: none;
+			}
+			.btnCall {
+				display: block;
+			}
+		}
+	}
+	// content
+	.content {
+		.sub_visual {
+			height: 200px;
+			margin-bottom: 80px;
+		}
+		.inner {
+			width: 100%;
+			min-height: 400px;
+		}
+	}
+
+	// footer
+	#footer_sub {
+		padding: 80px 0;
+		.inner {
+			width: 100%;
+			h1 {
+				margin-left: 20px;
+			}
+		}
+	}
+}
+
+// mobile
+
+@media screen and (max-width: 539px) {
+	// header
+	#header_sub {
+		.inner {
+			h1 {
+				left: 30px;
+				bottom: 30px;
+			}
+		}
+	}
+	// content
+	#content {
+		padding: 0 0 80px;
+		.sub_visual {
+			height: 150px;
+		}
+		.inner {
+		}
+	}
+
+	// footer
+	#footer_sub {
+		.inner {
+			h1 {
+				margin-bottom: 20px;
+			}
+			ul {
+				float: left;
+				li {
+					margin-left: 0;
+					margin-right: 20px;
+				}
+			}
+		}
+	}
+}

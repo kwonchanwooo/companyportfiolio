@@ -1,0 +1,30 @@
+@mixin bars($view: view) {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 2px;
+	background: #000;
+	position: absolute;
+	$view: 0;
+	left: 0;
+	transition: $view 0.5s 0s, transform 0.5s 0.5s;
+}
+
+@mixin fit {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+@mixin h1 {
+	font: bold 24px/1 "arial";
+	color: #555;
+	text-align: center;
+	margin-bottom: 50px;
+}
+
+@mixin clear {
+	content: "";
+	display: block;
+	clear: both;
+}
